@@ -13,10 +13,11 @@ def load_books(book_list, file_name):
         title = line_list[1]
         author = line_list[2]
         genre = int(line_list[3])
-        if line_list[4] =='True':
-            availability = True
-        elif line_list[4] =='False':
-            availability = False
+        # if line_list[4] =='True':
+        #     availability = True
+        # elif line_list[4] =='False':
+        #     availability = False
+        availability = bool(line_list[4])
         book = b.Book(isbn, title, author, genre, availability)
         book_list.append(book)
         number_of_books += 1
