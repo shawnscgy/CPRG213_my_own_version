@@ -47,3 +47,13 @@ def add_book(book_list):
     book = b.Book(isbn, title, author, genre, available = True)
     book_list.append(book)
     print(f'\'{title}\' with ISBN {isbn} successfully added.\n')
+
+
+
+def main():
+    pass
+
+
+
+if __name__ == "__main__":
+    main()
