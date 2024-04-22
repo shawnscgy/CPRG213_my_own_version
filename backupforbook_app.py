@@ -185,8 +185,9 @@ def main():
     load_books(book_list, file_name) # Load
     
     # first tiem load menu
-    MAIN_MENU_DICT.update(MENU_EXIT)
-    menu_dict = MAIN_MENU_DICT
+    menu_dict = {}
+    menu_dict.update(MAIN_MENU_DICT)
+    menu_dict.update(MENU_EXIT)
     menu_title = MAIN_MENU_TITLE
     selection = print_menu(menu_title, menu_dict)
 
@@ -226,9 +227,10 @@ def main():
 
             
         else:
-            MAIN_MENU_DICT.update(LIB_MENU_DICT)
-            MAIN_MENU_DICT.update(MENU_EXIT)
-            menu_dict = MAIN_MENU_DICT
+            menu_dict.clear()
+            menu_dict.update(MAIN_MENU_DICT)
+            menu_dict.update(LIB_MENU_DICT)
+            menu_dict.update(MENU_EXIT)
             menu_title = LIB_MENU_TITLE
             selection = print_menu(menu_title, menu_dict)
 
