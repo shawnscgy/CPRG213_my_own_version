@@ -1,4 +1,3 @@
-import book as b
 # Find
 def find_book_by_isbn(book_list, isbn_code):
     index = 0
@@ -21,11 +20,13 @@ def return_book(book_list):
         book = book_list[index]
         title = book.get_title()
         isbn = book.get_isbn()
-        if book.get_available() == True:
-            print(f'\'{title}\' with ISBN {isbn} is not currently borrowed.\n')
-        elif book.get_available() == False:
+        if book.get_available() == "True":
+            print(f'\'{title}\' with ISBN {isbn} is not currently borrowed.')
+
+        elif book.get_available() == "False":
             book.return_it()
-            print(f'\'{title}\' with ISBN {isbn} successfully returned.\n')
+            print(f'\'{title}\' with ISBN {isbn} successfully returned.')
+            
 
 # Add
 def add_book(book_list):
@@ -34,27 +35,21 @@ def add_book(book_list):
     author = input('Enter author name: ')
     genre_name = input('Enter genre: ')
     # correct genre name until valid
-    while genre_name not in b.Book.GENRE_LIST:
+    while genre_name not in b.Book.GENRE_LIST.values():
         print('Invalid genre. Choices are: ', end='')
-        for name in b.Book.GENRE_LIST:
-            if name == b.Book.GENRE_LIST[-1]:
+        for name in b.Book.GENRE_LIST.values():
+            if name == b.Book.GENRE_LIST['9']:
                 print(name)
             else:
                 print(name, end = ', ')
         genre_name = input('Enter genre: ')
+        
     # get genre number
-    genre = b.Book.GENRE_LIST.index(genre_name)
+    genre_list = list(b.Book.GENRE_LIST.values())
+    genre = str(genre_list.index(genre_name))
+
     # instantiate a new book, and add to the list
-    book = b.Book(isbn, title, author, genre, available = True)
+    book = b.Book(isbn, title, author, genre, available = "True")
     book_list.append(book)
-    print(f'\'{title}\' with ISBN {isbn} successfully added.\n')
 
-
-
-def main():
-    pass
-
-
-
-if __name__ == "__main__":
-    main()
+    print(f'\'{title}\' with ISBN {isbn} successfully added.')
