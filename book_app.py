@@ -1,6 +1,5 @@
 import book as b
 import os
-bool
 # Load
 def load_books(book_list, file_name):
     
